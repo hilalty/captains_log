@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
 //new route
 app.get("/logs/new", (req, res) => {
   res.render("new");
@@ -8,7 +13,7 @@ app.get("/logs/new", (req, res) => {
 
 //create route
 app.post("/logs/", (req, res) => {
-    res.send("received");
+    res.send(req.body);
   });
 
   //view engine
