@@ -20,6 +20,9 @@ class Show extends React.Component {
             ? `Unfortunately it is broken again`
             : `We're good, it is not broken`}
         </p>
+        <nav>
+          <a href={`/logs/${log.id}/edit`}>Edit</a>
+        </nav>
       </div>
     );
   }
