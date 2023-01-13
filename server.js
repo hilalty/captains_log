@@ -31,9 +31,21 @@ app.get("/logs", (req, res) => {
   });
 });
 
-//delete
+//new
+app.get("/logs/new", (req, res) => {
+    res.render("New");
+  });
 
-//create route
+//delete
+app.delete('/logs/:id', (req, res)=>{
+    Log.findByIdAndRemove(req.params.id, (err, data)=>{
+        res.redirect('/logs');
+    });
+});
+
+//update
+
+//create
 app.post("/logs", (req, res) => {
   if (req.body.shipIsBroken === "on") {
     req.body.shipIsBroken = true;
@@ -45,10 +57,8 @@ app.post("/logs", (req, res) => {
   });
 });
 
-//new
-app.get("/logs/new", (req, res) => {
-  res.render("New");
-});
+//edit
+
 
 //show
 app.get("/logs/:id", (req, res)=>{

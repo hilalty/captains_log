@@ -14,10 +14,10 @@ class Show extends React.Component {
           Title: <a href={`/logs/${log.id}`}>{log.title}</a>
         </h2>
         <p>{log.entry}</p>
+        <h4>How about the ship?</h4>
         <p>
-          The ship?{" "}
           {log.shipIsBroken
-            ? `It is broken again`
+            ? `Unfortunately it is broken again`
             : `We're good, it is not broken`}
         </p>
       </div>

@@ -19,11 +19,17 @@ class Index extends React.Component {
                 </h3>
                 <p>{log.entry}</p>
                 <p>
-                  The ship?{" "}
+                  Is ship broken?:{" "}
                   {log.shipIsBroken
-                    ? `It is broken again`
-                    : `We're good, it is not broken`}
+                    ? `Yes`
+                    : `No`}
                 </p>
+                <form
+                  action={`/logs/${log._id}?_method=DELETE`}
+                  method="POST"
+                >
+                  <input type="submit" value="remove" />
+                </form>
               </li>
             );
           })}
