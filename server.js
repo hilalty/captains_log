@@ -51,7 +51,6 @@ app.get("/logs/new", (req, res) => {
 });
 
 //show
-
 app.get("/logs/:id", (req, res)=>{
     Log.findById(req.params.id, (err, foundLog)=>{
         res.render("Show", {
