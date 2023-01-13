@@ -19,7 +19,7 @@ class Index extends React.Component {
                 </h3>
                 <p>{log.entry}</p>
                 <p>
-                  Is ship broken?:{" "}
+                  Is ship broken?{"  "}
                   {log.shipIsBroken
                     ? `Yes`
                     : `No`}

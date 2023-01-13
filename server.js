@@ -33,14 +33,14 @@ app.get("/logs", (req, res) => {
 
 //new
 app.get("/logs/new", (req, res) => {
-    res.render("New");
-  });
+  res.render("New");
+});
 
 //delete
-app.delete('/logs/:id', (req, res)=>{
-    Log.findByIdAndRemove(req.params.id, (err, data)=>{
-        res.redirect('/logs');
-    });
+app.delete("/logs/:id", (req, res) => {
+  Log.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect("/logs");
+  });
 });
 
 //update
@@ -58,16 +58,26 @@ app.post("/logs", (req, res) => {
 });
 
 //edit
-
+app.get("/logs/:id/edit", (req, res) => {
+  Log.findById(req.params.id, (err, foundLog) => {
+    if (!err) {
+      res.render("Edit", {
+        log: foundLog,
+      });
+    } else {
+      res.send({ msg: err.message });
+    }
+  });
+});
 
 //show
-app.get("/logs/:id", (req, res)=>{
-    Log.findById(req.params.id, (err, foundLog)=>{
-        res.render("Show", {
-            log:foundLog
-        });
+app.get("/logs/:id", (req, res) => {
+  Log.findById(req.params.id, (err, foundLog) => {
+    res.render("Show", {
+      log: foundLog,
     });
-}); 
+  });
+});
 
 //view engine
 app.set("view engine", "jsx");
